@@ -23,7 +23,7 @@ node{
          withCredentials([string(credentialsId: 'dockerpwdsarkararpan', variable: 'dockerPWD')]) {
               sh "docker login -u sarkararpan -p ${dockerPWD}"
          }
-        sh 'docker push rajnikhattarrsinha/javademoapp_$JOB_NAME:$BUILD_NUMBER'
+        sh 'docker push sarkararpan/javademoapp_$JOB_NAME:$BUILD_NUMBER'
         sh "sed -i.bak 's/#BUILD-NUMBER#/$BUILD_NUMBER/' deployment.yaml"
         sh "sed -i.bak 's/#JOB-NAME#/$JOB_NAME/' deployment.yaml"
       }
